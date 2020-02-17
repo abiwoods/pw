@@ -2,7 +2,7 @@
 
 <div>
   <label>Enter Length</label>
-  <input (input)="onChangeLength($event.target.value)"/>
+  <input (input)="onChangeLength($event.target.value)" />
 </div>
 
 <div>
@@ -12,19 +12,22 @@
 
 <div>
   <label>Use Numbers</label>
-  <input type="checkbox" (change)="onChangeUseNumbers()"/>
+  <input type="checkbox" (change)="onChangeUseNumbers()" />
 </div>
 
 <div>
   <label>Use Symbols</label>
-  <input type="checkbox" (change)="onChangeUseSymbols()"/>
+  <input type="checkbox" (change)="onChangeUseSymbols()" />
 </div>
 
 <div>
-  <button (click)="onButtonClick()">Generate!</button>
+  <button 
+    [disabled]="!(passwordLength && (useLetters || useNumbers || useSymbols))"
+    (click)="onButtonClick()"
+  >Generate!</button>
 </div>
 
 <div>
   <label>Your Password</label>
-  <input [value]="password"/>
+  <input [value]="password" />
 </div>
